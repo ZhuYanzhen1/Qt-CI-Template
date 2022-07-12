@@ -15,7 +15,8 @@ jobs:
     - name: configure and make
       run: |
         mkdir build && cd build && qmake .. && make -j$(nproc) && mv Template ../
-        cd .. && rm -rf build && mkdir pack
+        cd .. && rm -rf build && mkdir pack && cd pack && mkdir opt && cd opt && mkdir Template
     - name: build app
       run: |
-         mv Template pack/ && cd pack && linuxdeployqt Template -appimage && ls
+         cp Template ./pack/opt/Template/ && cp Template.desktop ./pack/opt/Template/ && cp Template.ico ./pack/opt/Template/
+         cd pack/opt/Template/ && linuxdeployqt Template -appimage && ls
