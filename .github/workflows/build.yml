@@ -1,6 +1,7 @@
 name: Build
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "main" ]
   pull_request:
@@ -12,4 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: configure
-      run: ls
+      run: |
+        ls && mkdir build && cd build
+        qmake .. && make -j$(nproc) && mv Template ../
+        rm -rf build && ls
