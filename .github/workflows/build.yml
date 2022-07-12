@@ -19,4 +19,4 @@ jobs:
     - name: build app
       run: |
          cp Template ./pack/opt/Template/ && cp Template.desktop ./pack/opt/Template/ && cp Template.ico ./pack/opt/Template/
-         cp Template.png ./pack/opt/Template/ && cd pack/opt/Template/ && linuxdeployqt Template -appimage && ls
+         cp Template.png ./pack/opt/Template/ && cd pack/opt/Template/ && linuxdeployqt Template -appimage -verbose=2 && ls
