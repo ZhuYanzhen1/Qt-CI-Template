@@ -12,7 +12,11 @@ jobs:
     runs-on: [ self-hosted, linux, x64 ]
     steps:
     - uses: actions/checkout@v3
-    - name: configure
+    - name: configure and make
       run: |
         mkdir build && cd build && qmake .. && make -j$(nproc) && mv Template ../
-        cd .. && rm -rf build && ls
+        cd .. && rm -rf build && mkdir pack && cd pack && mkdir opt && cd opt && mkdir Template
+    - name: build app
+      run: |
+         cp Template ./pack/opt/Template/ && cp Template.desktop ./pack/opt/Template/ && cp Template.ico ./pack/opt/Template/
+         cd pack/opt/Template/ && linuxdeployqt Template -appimage && ls
