@@ -22,9 +22,12 @@ jobs:
     - name: build app
       run: |
         cd pack/usr/share/applications/ && linuxdeployqt ./Template.desktop -appimage -verbose=1
-        cd ../../../../
-        mv pack/usr/share/applications/Template-* ./Template-app && mv pack/Template.desktop ./
-        rm -rf pack && ls
+        cd ../../../../ && mv pack/usr/share/applications/Template-* ./Template-app
+        mv pack/Template.desktop ./ && rm -rf pack
     - name: build deb
       run: |
-        ls && mkdir pack
+        mkdir -p pack/usr/share/icons/hicolor/256x256/apps && mkdir -p pack/usr/share/applications
+        mkdir -p pack/DEBIAN && mkdir -p pack/usr/bin && mv Template-app pack/usr/bin/Template
+        mv Template.desktop ./pack/usr/share/applications && cp ./require/Template.png ./pack/usr/share/icons/hicolor/256x256/apps
+        cp ./require/control ./pack/DEBIAN && cd pack && ls
+
