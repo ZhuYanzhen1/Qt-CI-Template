@@ -2,7 +2,7 @@
 Type=Application
 Name=Template
 Comment=this is a template app
-Exec=Template
-Icon=Template.png
+Exec=/usr/bin/Template
+Icon=/usr/share/icons/hicolor/256x256/apps/Template
 Terminal=false
 Categories=Office;
