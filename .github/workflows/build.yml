@@ -20,4 +20,4 @@ jobs:
         cp Template.png ./pack/opt/Template
     - name: build app
       run: |
-        linuxdeployqt ./pack/opt/Template/Template.desktop -appimage -verbose=1 && ls
+        cd pack/opt/Template && linuxdeployqt ./Template.desktop -appimage -verbose=1 && ls
