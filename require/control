@@ -1,0 +1,5 @@
+Package: template-application
+Version: 1.0.1
+Architecture: amd64
+Maintainer: LaoZhu
+Description: this is a template application
