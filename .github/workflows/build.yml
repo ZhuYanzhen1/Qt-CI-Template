@@ -15,9 +15,10 @@ jobs:
     - name: configure and make
       run: |
         mkdir build && cd build && qmake .. && make -j$(nproc) && mv Template ../
-        cd .. && rm -rf build && mkdir -p pack/opt/Template
-        cp Template ./pack/opt/Template && cp Template.desktop ./pack/opt/Template
-        cp Template.png ./pack/opt/Template
+        cd .. && rm -rf build && mkdir -p pack/usr/share/icons/hicolor/256x256/apps && mkdir -p pack/usr/bin
+        mkdir -p pack/usr/lib && mkdir -p pack/usr/share/applications
+        cp Template ./pack/usr/bin && cp Template.desktop ./pack/usr/share/applications
+        cp Template.png ./pack/usr/share/icons/hicolor/256x256/apps
     - name: build app
       run: |
-        cd pack/opt/Template && linuxdeployqt ./Template.desktop -appimage -verbose=1 && ls
+        cd pack/usr/share/applications/ && linuxdeployqt ./Template.desktop -appimage -verbose=1 && ls
