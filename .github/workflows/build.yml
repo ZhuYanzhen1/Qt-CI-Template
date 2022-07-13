@@ -29,5 +29,9 @@ jobs:
         mkdir -p pack/usr/share/icons/hicolor/256x256/apps && mkdir -p pack/usr/share/applications
         mkdir -p pack/DEBIAN && mkdir -p pack/usr/bin && mv Template-app pack/usr/bin/Template
         mv Template.desktop ./pack/usr/share/applications && cp ./require/Template.png ./pack/usr/share/icons/hicolor/256x256/apps
-        cp ./require/control ./pack/DEBIAN && cd pack && dpkg -b . Template.deb && mv Template.deb ../
-
+        cp ./require/control ./pack/DEBIAN && cd pack && dpkg -b . Template.deb && mv Template.deb ../ && rm -rf pack
+    - name: upload deb
+      uses: actions/upload-artifact@v2
+      with:
+        name: Template.deb
+        path: Template.deb
