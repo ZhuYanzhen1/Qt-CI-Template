@@ -21,4 +21,4 @@ jobs:
         cp Template.png ./pack/usr/share/icons/hicolor/256x256/apps
     - name: build app
       run: |
-        linuxdeployqt ./pack/usr/share/applications/Template.desktop -appimage -verbose=1 && ls
+        cd pack/usr/share/applications/ && linuxdeployqt ./Template.desktop -appimage -verbose=1 && ls
