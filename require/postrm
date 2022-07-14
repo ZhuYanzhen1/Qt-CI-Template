@@ -1,6 +1,9 @@
 #!/bin/sh
 for user in /home/*
 do
-    rm ${user}/Desktop/Template.desktop
+    if test -f ${user}/Desktop/Template.desktop
+    then
+        rm ${user}/Desktop/Template.desktop
+    fi
 done
 
