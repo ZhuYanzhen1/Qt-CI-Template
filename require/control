@@ -1,5 +1,7 @@
 Package: template-application
 Version: 1.0.1
+Section: devel
 Architecture: amd64
 Maintainer: LaoZhu
+Installed-Size: 33554432
 Description: this is a template application
