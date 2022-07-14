@@ -24,7 +24,7 @@ jobs:
         cd pack/usr/share/applications/ && linuxdeployqt ./Template.desktop -appimage -verbose=1
         cd ../../../../ && mv pack/usr/share/applications/Template-* ./Template-app
         mv pack/Template.desktop ./ && rm -rf pack 
-        sed -i 's/hicolor/256x256/apps/Template/hicolor/256x256/apps/Template.png/g' Template.desktop
+        sed -i "s#hicolor/256x256/apps/Template#hicolor/256x256/apps/Template.png#g" Template.desktop
     - name: build deb
       run: |
         mkdir -p pack/usr/share/icons/hicolor/256x256/apps && mkdir -p pack/usr/share/applications
