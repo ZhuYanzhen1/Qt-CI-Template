@@ -1,0 +1,6 @@
+#!/bin/sh
+for user in /home/*
+do
+    rm ${user}/Desktop/Template.desktop
+done
+

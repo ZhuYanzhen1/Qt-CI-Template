@@ -2,5 +2,6 @@
 for user in /home/*
 do
     cp /usr/share/applications/Template.desktop ${user}/Desktop/
-    chmod 755 ${user}//Desktop/Template.desktop
+    chmod 755 ${user}/Desktop/Template.desktop
+    chown ${user} ${user}/Desktop/Template.desktop
 done
